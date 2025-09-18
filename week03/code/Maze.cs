@@ -25,14 +25,27 @@ public class Maze
         _mazeMap = mazeMap;
     }
 
-    // TODO Problem 4 - ADD YOUR CODE HERE
+    // TODO Problem 4
     /// <summary>
     /// Check to see if you can move left.  If you can, then move.  If you
     /// can't move, throw an InvalidOperationException with the message "Can't go that way!".
     /// </summary>
     public void MoveLeft()
     {
-        // FILL IN CODE
+        // FILL IN CODE**************
+           if (!_mazeMap.ContainsKey((_currX, _currY)))
+            throw new InvalidOperationException("Invalid maze position!");
+
+        var directions = _mazeMap[(_currX, _currY)];
+
+        if (directions[0]) // left
+        {
+            _currX--;
+        }
+        else
+        {
+            throw new InvalidOperationException("Can't go that way!");
+        }
     }
 
     /// <summary>
@@ -41,7 +54,20 @@ public class Maze
     /// </summary>
     public void MoveRight()
     {
-        // FILL IN CODE
+        // FILL IN CODE**************
+        if (!_mazeMap.ContainsKey((_currX, _currY)))
+            throw new InvalidOperationException("Invalid maze position!");
+
+        var directions = _mazeMap[(_currX, _currY)];
+
+        if (directions[1]) // right
+        {
+            _currX++;
+        }
+        else
+        {
+            throw new InvalidOperationException("Can't go that way!");
+        }
     }
 
     /// <summary>
@@ -50,7 +76,20 @@ public class Maze
     /// </summary>
     public void MoveUp()
     {
-        // FILL IN CODE
+        // FILL IN CODE**************
+        if (!_mazeMap.ContainsKey((_currX, _currY)))
+            throw new InvalidOperationException("Invalid maze position!");
+
+        var directions = _mazeMap[(_currX, _currY)];
+
+        if (directions[2]) // up
+        {
+            _currY--;
+        }
+        else
+        {
+            throw new InvalidOperationException("Can't go that way!");
+        }
     }
 
     /// <summary>
@@ -59,7 +98,20 @@ public class Maze
     /// </summary>
     public void MoveDown()
     {
-        // FILL IN CODE
+        // FILL IN CODE**************
+        if (!_mazeMap.ContainsKey((_currX, _currY)))
+            throw new InvalidOperationException("Invalid maze position!");
+
+        var directions = _mazeMap[(_currX, _currY)];
+
+        if (directions[3]) // down
+        {
+            _currY++; //go down by decreasing Y
+        }
+        else
+        {
+            throw new InvalidOperationException("Can't go that way!");
+        }
     }
 
     public string GetStatus()
